@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 
 import AddIcon from "@mui/icons-material/Add";
@@ -51,6 +50,10 @@ export default function Dashboard() {
     fetchData();
   }, [loading]);
 
+  const refetch = () => {
+    setLoading(true);
+  }
+  
   const handleAddTrainee = async () => {
     try {
       const response = await api.createTrainee(newTrainee);
@@ -72,7 +75,7 @@ export default function Dashboard() {
     setNewTrainee({ ...newTrainee, gender: event.target.value });
   };
 
-  const renderTable = () => {
+  const renderTable = (refetch) => {
     if (loading) {
       return (
         <p className="flex items-center justify-center">
@@ -83,7 +86,7 @@ export default function Dashboard() {
     if (error) {
       return <p className="flex items-center justify-center">{error}</p>;
     }
-    return <Table data={data} setData={setData} />;
+    return <Table data={data} setData={setData} refetch={refetch}/>;
   };
 
   return (
@@ -102,7 +105,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      {renderTable()}
+      {renderTable(refetch)}
       <Dialog open={openAddDialog} onClose={() => setOpenAddDialog(false)}>
         <DialogTitle>Add Trainee</DialogTitle>
         <DialogContent>
