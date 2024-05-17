@@ -18,10 +18,8 @@ const createTrainee = async (trainee) => {
   return response.data;
 };
 
-const deleteTrainee = async (id) => {
-  const response = await axios.delete(baseUrl, {
-    data: { id },
-  });
+const removeTrainee = async (id) => {
+  const response = await axios.delete(`${baseUrl}/${id}`);
   return response.data;
 };
 
@@ -34,6 +32,6 @@ export default {
   getAllTrainees,
   getOneTrainee,
   createTrainee,
-  deleteTrainee,
+  removeTrainee,
   updateTrainee,
 };
