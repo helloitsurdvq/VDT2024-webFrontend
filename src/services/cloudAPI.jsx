@@ -18,13 +18,14 @@ const createTrainee = async (trainee) => {
   return response.data;
 };
 
-const removeTrainee = async (id) => {
-  const response = await axios.delete(`${baseUrl}/${id}`);
+
+const updateTrainee = async (id, trainee) => {
+  const response = await axios.put(`${baseUrl}/${id}`, trainee);
   return response.data;
 };
 
-const updateTrainee = async (id, trainee) => {
-  const response = await axios.patch(`${baseUrl}/${id}`, trainee);
+const removeTrainee = async (id) => {
+  const response = await axios.delete(`${baseUrl}/${id}`);
   return response.data;
 };
 
