@@ -12,14 +12,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "../Button";
 import api from "../../services/cloudAPI";
 
-// const handleEdit = (id) => {
-//   console.log(`Edit trainee with id: ${id}`);
-// };
-
-// const handleInfo = (id) => {
-//   console.log(`Info for trainee with id: ${id}`);
-// };
-
 export default function Table(props) {
   const { data, setData } = props;
   const [open, setOpen] = useState(false);
@@ -28,9 +20,9 @@ export default function Table(props) {
 
   const handleClickOpen = (data) => {
     if (data.message) {
-      setTrainee(data); 
+      setTrainee(data);
     } else {
-      setTrainee(data); 
+      setTrainee(data);
     }
     setOpen(true);
   };
@@ -70,7 +62,6 @@ export default function Table(props) {
   };
 
   const handleDeleteTrainee = async (id) => {
-    // Call your API to delete trainee with id
     const response = await api.removeTrainee(id);
 
     if (response.error) {
@@ -78,7 +69,7 @@ export default function Table(props) {
     } else {
       setOpenDel(false);
       const updatedData = data.filter((trainee) => trainee._id !== id);
-      setData(updatedData); 
+      setData(updatedData);
     }
   };
 
