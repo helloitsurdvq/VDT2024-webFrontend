@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const VITE_APP_BASE_URL = "http://api.api.svc.cluster.local:3000/api";
+const VITE_APP_BASE_URL = "http://localhost:3000/api";
 const baseUrl = VITE_APP_BASE_URL + "/trainee";
 
 const getAllTrainees = async () => {
