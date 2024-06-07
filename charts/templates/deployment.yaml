@@ -19,6 +19,3 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 80
-    env:
-        - name: VITE_APP_BASE_URL
-          value: "http://api.api.svc.cluster.local:3000"
